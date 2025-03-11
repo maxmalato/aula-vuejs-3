@@ -15,6 +15,8 @@
             setTimeout(() => {
                 this.nome = "Max Malato"
             }, 2000)
+
+            this.lifeCycle()
         },
         // Depois que é criado, será montado.
         mounted() {
@@ -22,5 +24,10 @@
                 this.nome = "Ana Caroline"
             }, 2000)
         },
+        methods: {
+            lifeCycle() {
+                console.log("Executou.")
+            }
+        }
     }
 </script>

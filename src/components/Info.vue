@@ -1,11 +1,29 @@
 <script>
+import Pictures from "./Pictures.vue";
+
 export default {
     name: "Info",
+    components: {
+        Pictures,
+    },
     data() {
         return {
             isWorking: false,
-            showEmail: true,
-            email: "email@email.com.br"
+            show_Email: true,
+            email: "email@email.com.br",
+            meuLink: "https://google.com.br",
+            buttonEmail: "Mostrar e-mail"
+        }
+    },
+    methods: {
+        showEmail() {
+            this.show_Email = !this.show_Email
+            
+            if(!this.show_Email) {
+                this.buttonEmail = "Mostrar e-mail"
+            } else {
+                this.buttonEmail = "Esconder e-mail"
+            }
         }
     }
 }
@@ -22,6 +40,10 @@ export default {
             <li>CSS</li>
             <li>JavaScritp</li>
         </ul>
-        <p v-show="showEmail">Mande um email para: {{ email }}</p>
+        <button @click="showEmail" class="p-2 bg-green-400 rounded-md cursor-pointer">{{ buttonEmail }}</button>
+        <p v-show="show_Email">Mande um email para: {{ email }}</p>
+        <!-- Para deixar uma diretiva dinâmica, pode colocar o v-bind:... -->
+        <p> Acesso para o meu portiófólio: <a v-bind:href="meuLink" target="_blank">Clique Aqui!</a></p>
+        <Pictures />
     </div>
 </template>
