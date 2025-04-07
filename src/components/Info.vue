@@ -6,6 +6,12 @@ export default {
     components: {
         Pictures,
     },
+    props: {
+        compEmail: {
+            type: String,
+            required: true
+        }
+    },
     data() {
         return {
             isWorking: false,
@@ -56,5 +62,6 @@ export default {
         <!-- Para deixar uma diretiva dinâmica, pode colocar o v-bind:... -->
         <p> Acesso para o meu portiófólio: <a v-bind:href="meuLink" target="_blank">Clique Aqui!</a></p>
         <Pictures />
+        <p class="font-semibold text-xl">Email do componente: {{ compEmail }}</p>
     </div>
 </template>
